@@ -2,6 +2,14 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local set = vim.keymap.set
+--[[
+ TODO:
+  keymaps for surround
+    use tpope/surround and create keymap for adding divs and formatting line in same keybinding
+
+  add keymaps for marks
+  set longer time on whichkey??
+--]]
 
 -- common keymaps
 set({ "i", "n", "v" }, "<c-s>", vim.cmd.wall)
@@ -46,6 +54,13 @@ set("n", "<leader>ls", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- moving lines in visual mode
 set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+-- remapping marks
+set("n", "M", "'")
+set("n", "’", "mM")
+set("n", "‘", "mN")
+set("n", "›", "mB")
+set("n", "-", "'.")
 
 -- ENTER KEY
 set("i", "<CR>", vim.cmd.stopinsert)
