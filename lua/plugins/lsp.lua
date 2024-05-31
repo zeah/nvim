@@ -3,6 +3,7 @@ return {
   opts = {
     -- inlay_hints = { enabled = false },
     document_highlight = { enabled = false },
+    inlay_hints = { enabled = false },
     diagnostics = {
       virtual_text = false,
     },
