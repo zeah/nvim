@@ -20,8 +20,12 @@ set({ "i", "n", "v" }, "<c-a>", "<home>")
 set("i", "<c-d>", '<cr><cr><up><esc>"_cc')
 
 -- remapping f and F to hop
-set({ "n", "v" }, "f", "<esc>:HopWord<CR>", { silent = true })
-set("n", "F", "<esc>:HopPatternCurrentLine<CR>", { silent = true })
+set({ "n" }, "f", ":HopWord<CR>", { silent = true })
+set("n", "F", ":HopPatternCurrentLine<CR>", { silent = true })
+
+-- remapping paste to be default no-copy
+set("v", "P", "p", { noremap = true })
+set("v", "p", "P", { noremap = true })
 
 -- remapping diagnostic
 set("n", "<c-l>", "<cmd>lua vim.diagnostic.goto_next({float = {source = true}})<cr>")
@@ -56,17 +60,46 @@ set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- remapping marks
-set("n", "M", "'")
-set("n", "’", "mM")
-set("n", "‘", "mN")
-set("n", "›", "mB")
-set("n", "-", "'.")
+set("n", "M", "`")
+set("n", "’", "mM", { noremap = true })
+set("n", "‘", "mN", { noremap = true })
+set("n", "›", "mB", { noremap = true })
+set("n", "-", "`.", { noremap = true })
 
 -- ENTER KEY
 set("i", "<CR>", vim.cmd.stopinsert)
 set("n", "<CR>", "a")
 
--- remapping new line in insert mode
-set("i", "<C-j>", "<Esc>o")
-set("i", "<C-k>", "<Esc>O")
-set("i", "<C-w>", "<CR>")
+set("i", "√", function()
+  vim.cmd("normal! o")
+end, { silent = true })
+
+set("i", "<D-j>", function()
+  vim.cmd("normal! O")
+end, { silent = true })
+
+-- go to nearest close bracket or quote
+set({ "n" }, "<F18>", function()
+  vim.fn.search([[\(["'`]\)]], "")
+end, { silent = true })
+set({ "i" }, "<F18>", function()
+  vim.fn.search([[\(["'`]\)]], "e")
+  vim.cmd("normal! l")
+end, { silent = true })
+
+vim.keymap.set("i", "<F20>", function()
+  vim.fn.search([[\([`'">\]})]\)]], "")
+end, { silent = true })
+
+vim.keymap.set({ "n", "v" }, "<F20>", function()
+  vim.fn.search([[\([`'">\]})]\)]])
+end, { silent = true })
+
+vim.keymap.set("i", "<F19>", function()
+  vim.fn.search([[\([`'"<\[{(]\)]], "b")
+  -- vim.cmd("normal! h")
+end, { silent = true })
+
+vim.keymap.set({ "n", "v" }, "<F19>", function()
+  vim.fn.search([[\([`'"<\[{(]\)]], "b")
+end, { silent = true })
