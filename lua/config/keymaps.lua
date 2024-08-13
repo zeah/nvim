@@ -87,19 +87,37 @@ set({ "i" }, "<F18>", function()
   vim.cmd("normal! l")
 end, { silent = true })
 
-vim.keymap.set("i", "<F20>", function()
+set("i", "<F20>", function()
   vim.fn.search([[\([`'">\]})]\)]], "")
 end, { silent = true })
 
-vim.keymap.set({ "n", "v" }, "<F20>", function()
+set({ "n", "v" }, "<F20>", function()
   vim.fn.search([[\([`'">\]})]\)]])
 end, { silent = true })
 
-vim.keymap.set("i", "<F19>", function()
+set("i", "<F19>", function()
   vim.fn.search([[\([`'"<\[{(]\)]], "b")
   -- vim.cmd("normal! h")
 end, { silent = true })
 
-vim.keymap.set({ "n", "v" }, "<F19>", function()
+set({ "n", "v" }, "<F19>", function()
   vim.fn.search([[\([`'"<\[{(]\)]], "b")
 end, { silent = true })
+set("n", "<leader>n", function()
+  -- PHP
+  if vim.bo.filetype == "php" then
+    local text = "wp_die('<xmp>' . print_r(, true) . '</xmp>');"
+    vim.api.nvim_put({ text }, "c", true, true)
+    local cursor_position = vim.api.nvim_win_get_cursor(0)
+    vim.api.nvim_win_set_cursor(0, { cursor_position[1], 25 })
+    vim.cmd("startinsert") -- Enter insert mode if needed
+  end
+  -- JavaScript
+  if vim.bo.filetype == "javascript" then
+    local text = "console.log();"
+    vim.api.nvim_put({ text }, "c", true, true)
+    local cursor_position = vim.api.nvim_win_get_cursor(0)
+    vim.api.nvim_win_set_cursor(0, { cursor_position[1], 12 })
+    vim.cmd("startinsert") -- Enter insert mode if needed
+  end
+end, { desc = "Insert wp_die with print_r and move cursor to 'hi'" })
