@@ -74,7 +74,7 @@ set("i", "√", function()
   vim.cmd("normal! o")
 end, { silent = true })
 
-set("i", "<D-j>", function()
+set("i", "ª", function()
   vim.cmd("normal! O")
 end, { silent = true })
 
