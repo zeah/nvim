@@ -11,6 +11,9 @@ local set = vim.keymap.set
   set longer time on whichkey??
 --]]
 
+-- telescope resume
+set("n", "<leader>fo", "<cmd>Telescope resume<cr>")
+
 -- common keymaps
 set({ "i", "n", "v" }, "<c-s>", vim.cmd.wall)
 set({ "i", "n", "v" }, "<c-e>", "<end>")
