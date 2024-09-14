@@ -1,6 +1,11 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
+    setup = {
+      rust_analyzer = function()
+        return true
+      end,
+    },
     -- inlay_hints = { enabled = false },
     document_highlight = { enabled = false },
     inlay_hints = { enabled = false },
