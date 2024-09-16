@@ -11,6 +11,9 @@ local set = vim.keymap.set
   set longer time on whichkey??
 --]]
 
+-- telescope resume
+set("n", "<leader>fo", "<cmd>Telescope resume<cr>")
+
 -- common keymaps
 set({ "i", "n", "v" }, "<c-s>", vim.cmd.wall)
 set({ "i", "n", "v" }, "<c-e>", "<end>")
@@ -29,6 +32,13 @@ set("v", "p", "P", { noremap = true })
 
 -- remapping diagnostic
 set("n", "<c-l>", "<cmd>lua vim.diagnostic.goto_next({float = {source = true}})<cr>")
+
+set("i", "<c-7>", "{<CR>}<esc>O")
+set("i", "<c-8>", "[<CR>]<esc>O")
+set("n", "<c-0>", "<end>a,<esc>")
+set("i", "<c-0>", "<end>,")
+set("n", "<c-9>", "<end>a;<esc>")
+set("i", "<c-9>", "<end>;")
 
 -- remapping visual mode keys
 set("n", "v", "V")
@@ -59,6 +69,8 @@ set("n", "<leader>ls", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
+set("n", "<F5>", vim.cmd.UndotreeToggle)
+
 -- remapping marks
 set("n", "M", "`")
 set("n", "’", "mM", { noremap = true })
@@ -69,8 +81,9 @@ set("n", "-", "`.", { noremap = true })
 -- ENTER KEY
 set("i", "<CR>", vim.cmd.stopinsert)
 set("n", "<CR>", "a")
+-- set("n", "<esc>", "Vyp")
 
-set("i", "√", function()
+set("i", "√", function() -- option + j
   vim.cmd("normal! o")
 end, { silent = true })
 
@@ -101,6 +114,31 @@ set("i", "<F19>", function()
 end, { silent = true })
 
 set({ "n", "v" }, "<F19>", function()
+  vim.fn.search([[\([`'"<\[{(]\)]], "b")
+end, { silent = true })
+
+set({ "n" }, "<S-F8>", function()
+  vim.fn.search([[\(["'`]\)]], "")
+end, { silent = true })
+set({ "i" }, "<S-F8>", function()
+  vim.fn.search([[\(["'`]\)]], "e")
+  vim.cmd("normal! l")
+end, { silent = true })
+
+set("i", "<S-F10>", function()
+  vim.fn.search([[\([`'">\]})]\)]], "")
+end, { silent = true })
+
+set({ "n", "v" }, "<S-F10>", function()
+  vim.fn.search([[\([`'">\]})]\)]])
+end, { silent = true })
+
+set("i", "<S-F9>", function()
+  vim.fn.search([[\([`'"<\[{(]\)]], "b")
+  -- vim.cmd("normal! h")
+end, { silent = true })
+
+set({ "n", "v" }, "<S-F9>", function()
   vim.fn.search([[\([`'"<\[{(]\)]], "b")
 end, { silent = true })
 set("n", "<leader>n", function()
