@@ -2,14 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local set = vim.keymap.set
---[[
- TODO:
-  keymaps for surround
-    use tpope/surround and create keymap for adding divs and formatting line in same keybinding
-
-  add keymaps for marks
-  set longer time on whichkey??
---]]
 
 -- telescope resume
 set("n", "<leader>fo", "<cmd>Telescope resume<cr>")
@@ -23,7 +15,7 @@ set({ "i", "n", "v" }, "<c-a>", "<home>")
 set("i", "<c-d>", '<cr><cr><up><esc>"_cc')
 
 -- remapping f and F to hop
-set({ "n" }, "f", ":HopWord<CR>", { silent = true })
+set("n", "f", ":HopWord<CR>", { silent = true })
 set("n", "F", ":HopPatternCurrentLine<CR>", { silent = true })
 
 -- remapping paste to be default no-copy
