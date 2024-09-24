@@ -79,9 +79,8 @@ set("i", "√", function() -- option + j
   vim.cmd("normal! o")
 end, { silent = true })
 
-set("i", "ª", function()
-  vim.cmd("normal! O")
-end, { silent = true })
+-- option + k
+set("i", "ª", "<esc><up>o", { silent = true })
 
 -- go to nearest close bracket or quote
 set({ "n" }, "<F18>", function()
