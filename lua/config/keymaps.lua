@@ -73,7 +73,6 @@ set("n", "-", "`.", { noremap = true })
 -- ENTER KEY
 set("i", "<CR>", vim.cmd.stopinsert)
 set("n", "<CR>", "a")
--- set("n", "<esc>", "Vyp")
 
 set("i", "√", function() -- option + j
   vim.cmd("normal! o")

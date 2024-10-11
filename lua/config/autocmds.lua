@@ -1,3 +1,19 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
+
+-- Load the 'persistence' session on startup if Neovim is opened without file arguments
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     print("VimEnter autocommand triggered")
+--     -- Check if Neovim was started without file arguments
+--     if vim.fn.argc() == 0 then
+--       -- Safely require the 'persistence' module
+--       local ok, persistence = pcall(require, "persistence")
+--       if ok then
+--         -- Load the last session
+--         persistence.load()
+--       end
+--     end
+--   end,
+-- })
