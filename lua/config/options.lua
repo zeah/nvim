@@ -4,10 +4,12 @@
 local opt = vim.opt
 
 opt.guifont = { "Fira Code", "h18" }
-opt.scrolloff = 7
+opt.scrolloff = 14
 opt.tabstop = 2
 opt.iskeyword:append("-")
 opt.hlsearch = false
 opt.incsearch = true
 opt.autowrite = false
 opt.signcolumn = "yes"
+opt.spell = true
+opt.spelllang = { "en_us" }

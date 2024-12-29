@@ -151,3 +151,8 @@ set("n", "<leader>n", function()
     vim.cmd("startinsert") -- Enter insert mode if needed
   end
 end, { desc = "Insert wp_die with print_r and move cursor to 'hi'" })
+
+-- set("n", "", ":cnext<CR>")
+-- set("n", "<M-k>", ":cprev<CR>")
+set("n", "√", "<cmd>cnext<CR>")
+set("n", "ª", "<cmd>cprev<CR>")
