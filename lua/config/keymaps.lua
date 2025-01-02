@@ -133,7 +133,7 @@ end, { silent = true })
 set({ "n", "v" }, "<S-F9>", function()
   vim.fn.search([[\([`'"<\[{(]\)]], "b")
 end, { silent = true })
-set("n", "<leader>n", function()
+set("n", "<leader>m", function()
   -- PHP
   if vim.bo.filetype == "php" then
     local text = "wp_die('<xmp>' . print_r(, true) . '</xmp>');"
