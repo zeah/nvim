@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 local set = vim.keymap.set
 
+-- set("i", "<c-¨", "~")
 set("n", "æ", [[:lua vim.fn.setreg('/', vim.fn.expand("<cword>"))<CR>]], { noremap = true, silent = true })
 -- set("n", "<leader>/", [[:lua vim.fn.setreg('/', vim.fn.input("Search term: "))<CR>]], { noremap = true, silent = true })
 -- telescope resume
@@ -29,9 +30,9 @@ set("n", "<c-l>", "<cmd>lua vim.diagnostic.goto_next({float = {source = true}})<
 
 set("i", "<c-7>", "{<CR>}<esc>O")
 set("i", "<c-8>", "[<CR>]<esc>O")
-set("n", "<c-0>", "<end>a,<esc>")
+set("n", "<c-0>", "A,<esc>")
 set("i", "<c-0>", "<end>,")
-set("n", "<c-9>", "<end>a;<esc>")
+set("n", "<c-9>", "A;<esc>")
 set("i", "<c-9>", "<end>;")
 
 -- remapping visual mode keys
@@ -70,7 +71,7 @@ set("n", "M", "`")
 set("n", "’", "mM", { noremap = true })
 set("n", "‘", "mN", { noremap = true })
 set("n", "›", "mB", { noremap = true })
-set("n", "-", "`.", { noremap = true })
+set("n", "-", "g;", { noremap = true })
 
 -- ENTER KEY
 set("i", "<CR>", vim.cmd.stopinsert)

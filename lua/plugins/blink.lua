@@ -1,4 +1,4 @@
--- return {
---   "saghen/blink.cmp",
---   enabled = false,
--- }
+return {
+  "saghen/blink.cmp",
+  enabled = false,
+}
