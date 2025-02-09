@@ -1,4 +1,18 @@
 return {
-  "saghen/blink.cmp",
-  enabled = false,
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          auto_show = false,
+        },
+        ghost_text = {
+          enabled = false,
+        },
+      },
+      keymap = {
+        ["C-Space"] = { "show" },
+      },
+    },
+  },
 }
