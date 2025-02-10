@@ -7,7 +7,7 @@ local set = vim.keymap.set
 set("n", "æ", [[:lua vim.fn.setreg('/', vim.fn.expand("<cword>"))<CR>]], { noremap = true, silent = true })
 -- set("n", "<leader>/", [[:lua vim.fn.setreg('/', vim.fn.input("Search term: "))<CR>]], { noremap = true, silent = true })
 -- telescope resume
-set("n", "<leader>fo", "<cmd>Telescope resume<cr>")
+-- set("n", "<leader>fo", "<cmd>Telescope resume<cr>")
 
 -- common keymaps
 set({ "i", "n", "v" }, "<c-s>", vim.cmd.wall)
