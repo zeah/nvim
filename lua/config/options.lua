@@ -12,4 +12,4 @@ opt.incsearch = true
 opt.autowrite = false
 opt.signcolumn = "yes"
 opt.spell = true
-opt.spelllang = { "en_us" }
+opt.spelllang = { "en_us", "nb" }
