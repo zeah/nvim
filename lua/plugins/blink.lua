@@ -12,6 +12,11 @@ return {
       },
       keymap = {
         ["C-Space"] = { "show" },
+        -- ["C-i"] = {
+        --   function(cmp)
+        --     cmp.show({ providers = { "snippets" } })
+        --   end,
+        -- },
       },
     },
   },
