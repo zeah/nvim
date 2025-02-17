@@ -1,6 +1,14 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 vim.cmd.colorscheme("catppuccin")
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "o" })
+  end,
+  desc = "Deaktiver automatisk kommentarinnsetting på nye linjer",
+})
 -- local function setup_lsp_diags()
 --   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 --     virtual_text = false,
