@@ -2,7 +2,7 @@
   "wp_die": {
     "prefix": "wp_die",
     "body": [
-      "wp_die('<xmp>' . print_r($1, true) . '</xmp>');"
+      "wp_die('<xmp>' . print_r($1, true) . '</xmp>');$2"
     ]
   }
 }
