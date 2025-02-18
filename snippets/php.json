@@ -4,5 +4,13 @@
     "body": [
       "wp_die('<xmp>' . print_r($1, true) . '</xmp>');$2"
     ]
+  },
+  "function": {
+    "prefix": "function",
+    "body": [
+      "function ${1:function_name}($${2:arg}) {",
+      "\t${3:// code...}",
+      "}"
+    ]
   }
 }
