@@ -7,6 +7,7 @@ return {
 
     opts.formatters_by_ft.php = { "prettier_php" }
     opts.formatters_by_ft.css = { "prettier" }
+    opts.formatters_by_ft.typescriptreact = { "prettier" }
     opts.formatters.prettier_php = {
       command = "prettier",
       args = {
