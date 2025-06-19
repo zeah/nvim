@@ -16,6 +16,7 @@ return {
         "--plugin=/usr/local/lib/node_modules/@prettier/plugin-php/src/index.mjs",
         "--parser=php",
         "--single-quote",
+        "--braceStyle=1tbs",
       },
       condition = function()
         return vim.fn.executable("prettier") == 1
