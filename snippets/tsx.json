@@ -1,0 +1,12 @@
+{
+  "file": {
+    "prefix": "file",
+    "body": [
+      "import { useState, useContext, useMemo } from \"react\";",
+      "import { StatsContext } from \"@/react/stats/StatsContext\";",
+      "export default function $1() {",
+      "const { filteredData } = useContext(StatsContext);",
+      "}"
+    ]
+  }
+}
