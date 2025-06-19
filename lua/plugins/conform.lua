@@ -7,12 +7,25 @@ return {
 
     opts.formatters_by_ft.php = { "prettier_php" }
     opts.formatters_by_ft.css = { "prettier" }
+    opts.formatters_by_ft.astro = { "prettier_astro" }
     opts.formatters_by_ft.typescriptreact = { "prettier" }
+    opts.formatters_by_ft.javascript = { "prettier" }
     opts.formatters.prettier_php = {
       command = "prettier",
       args = {
         "--plugin=/usr/local/lib/node_modules/@prettier/plugin-php/src/index.mjs",
         "--parser=php",
+        "--single-quote",
+      },
+      condition = function()
+        return vim.fn.executable("prettier") == 1
+      end,
+    }
+    opts.formatters.prettier_astro = {
+      command = "prettier",
+      args = {
+        "--plugin=/usr/local/lib/node_modules/prettier-plugin-astro/dist/index.js",
+        "--parser=astro",
       },
       condition = function()
         return vim.fn.executable("prettier") == 1

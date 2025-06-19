@@ -3,13 +3,25 @@
 -- Add any additional keymaps here
 local set = vim.keymap.set
 
--- source this file
 set(
   "n",
   "<leader>rk",
   ":source ~/.config/nvim/lua/config/keymaps.lua<CR>",
   { silent = true, noremap = true, desc = "Reload keymaps" }
 )
+
+-- keys = {
+--     {
+--       "<leader>cp",
+--       function()
+--         require("copilot.panel").open()
+--       end,
+--       desc = "Open Copilot Panel"
+--     },
+--   },
+set("n", "<leader>cp", function()
+  require("copilot.panel").open({})
+end, { desc = "Open Copilot Panel" })
 
 set("n", "<leader>c,", "A,<esc>", { noremap = true, silent = true, desc = "Add comma at end of line" })
 set("n", "<leader>c;", "A;<esc>", { noremap = true, silent = true, desc = "Add semi-colon at end of line" })
